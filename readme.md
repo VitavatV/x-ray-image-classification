@@ -1,51 +1,142 @@
-# X-Ray Image Classification
+# Chest X-Ray Pneumonia Classification
 
-This project focuses on classifying chest X-ray images to detect pneumonia. The project uses convolutional neural networks (CNNs) implemented with PyTorch.
+This project implements a deep learning pipeline to classify chest X-ray images for pneumonia detection using PyTorch. It supports multiple image preprocessing techniques and model architectures.
 
-## Project Structure
-001_dataset_download.ipynb 002_image_classification_norm.ipynb 002_image_classification_scale.ipynb 002_image_classification.ipynb 003_image_normalization.ipynb env/ .gitignore CACHEDIR.TAG Lib/ site-packages/ pyvenv.cfg Scripts/ pycache/ ... xray_classifier.pth
+---
 
+## Features
 
-## Notebooks
+- Dataset loading and preprocessing with grayscale image handling.
+- Three transformation modes:  
+  - **scale:** Simple scaling and resizing.  
+  - **zscore:** Standard normalization using dataset mean and std.  
+  - **normalize:** Custom normalization involving cropping based on cumulative distribution function (CDF) of grayscale intensities.
+- Support for three model architectures:  
+  - Custom CNN from scratch  
+  - Pretrained MobileNetV2 adapted for grayscale input  
+  - Pretrained EfficientNet-B0 adapted for grayscale input
+- Training and evaluation with accuracy, loss, classification report, and ROC curve metrics.
+- Logging outputs to timestamped log files.
+- Saving trained model weights and performance plots.
 
-- **001_dataset_download.ipynb**: Downloads and extracts the dataset from Kaggle.
-- **002_image_classification.ipynb**: Implements the image classification model.
-- **002_image_classification_norm.ipynb**: Implements image normalization and classification.
-- **002_image_classification_scale.ipynb**: Implements image scaling and classification.
-- **003_image_normalization.ipynb**: Additional image normalization techniques.
+---
 
-## Setup
+## Requirements
 
-1. Clone the repository.
-2. Create a virtual environment and activate it:
-    ```sh
-    python -m venv env
-    source env/bin/activate  # On Windows use `env\Scripts\activate`
-    ```
-3. Install the required packages:
-    ```sh
-    pip install -r requirements.txt
-    ```
+- Python 3.7+
+- PyTorch
+- torchvision
+- numpy
+- pandas
+- matplotlib
+- scikit-learn
+- opencv-python
+- pillow
+- torchviz (optional, for model visualization)
+
+Install dependencies using:
+
+```bash
+pip install torch torchvision numpy pandas matplotlib scikit-learn opencv-python pillow torchviz
+```
+
+## Dataset
+
+chest_xray/
+│
+├── train/
+│   ├── NORMAL/
+│   └── PNEUMONIA/
+│
+├── test/
+│   ├── NORMAL/
+│   └── PNEUMONIA/
+│
+└── val/  (optional)
+
+data_dir = r"C:\Users\Study\.cache\kagglehub\datasets\paultimothymooney\chest-xray-pneumonia\versions\2\chest_xray"
+
+## Configuration
+
+| Parameter        | Description                                                  | Default   |
+| ---------------- | ------------------------------------------------------------ | --------- |
+| `transform_mode` | Preprocessing mode: "scale", "zscore", or "normalize"        | `"scale"` |
+| `model_name`     | Model architecture: "cnn", "mobilenetv2", "efficientnet\_b0" | `"cnn"`   |
+| `img_height`     | Image height after resizing                                  | 256       |
+| `img_width`      | Image width after resizing                                   | 256       |
+| `batch_size`     | Batch size for training and testing                          | 1 or 32   |
+| `epochs`         | Number of training epochs                                    | 1         |
+| `num_classes`    | Number of output classes (e.g., 2 for pneumonia detection)   | 2         |
 
 ## Usage
 
-1. **Download Dataset**: Run the [001_dataset_download.ipynb](http://_vscodecontentref_/6) notebook to download and extract the dataset.
-2. **Train Model**: Run the [002_image_classification.ipynb](http://_vscodecontentref_/7) notebook to train the model.
-3. **Normalize and Train**: Run the [002_image_classification_norm.ipynb](http://_vscodecontentref_/8) notebook to normalize images and train the model.
-4. **Scale and Train**: Run the [002_image_classification_scale.ipynb](http://_vscodecontentref_/9) notebook to scale images and train the model.
+Set up dataset path and parameters.
 
-## Model
+Choose the preprocessing mode and model architecture.
 
-The trained model is saved as [xray_classifier.pth](http://_vscodecontentref_/10). You can load this model for inference or further training.
+Run the script:
+
+bash
+Copy
+Edit
+python train.py
+(Replace train.py with your actual script filename.)
+
+The training logs will be saved automatically to a file named like log_YYYY-MM-DD_HH-MM-SS.txt.
+
+After training, the following are saved:
+
+Model weights: xray_classifier.pth
+
+Performance plots: model_metrics.png
+
+## Code Overview
+
+Data Loading and Preprocessing
+Uses torchvision.datasets.ImageFolder for standard loading.
+
+Calculates dataset mean and std for normalization when needed.
+
+Custom dataset class for advanced cropping and normalization (transform_mode "normalize").
+
+Models
+CNN: Custom 3-layer convolutional network for grayscale input.
+
+MobileNetV2: Pretrained on ImageNet, adapted for single-channel input.
+
+EfficientNet-B0: Pretrained model adapted for grayscale images.
+
+Training & Evaluation
+Optimizer: Adam with learning rate scheduler.
+
+Loss function: CrossEntropyLoss.
+
+Tracks training and validation accuracy and loss.
+
+Generates classification report with precision, recall, and F1-score.
+
+Plots accuracy, loss, classification metrics, and ROC curve.
+
+## Output
+
+Log file: Contains console output saved with timestamp.
+
+Model weights: Saved as xray_classifier.pth.
+
+Metrics plot: Saved as model_metrics.png.
+
+## Notes
+
+The current script runs for 1 epoch by default; increase epochs for better performance.
+
+Batch size is set low for compatibility; adjust depending on your hardware.
+
+Windows users should keep num_workers=0 to avoid multiprocessing issues.
 
 ## License
+This project is open source and free to use.
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+## Acknowledgments
+Dataset from Paul Mooney's Chest X-Ray Pneumonia Dataset.
 
-## Acknowledgements
-
-- Dataset: [Chest X-Ray Images (Pneumonia)](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia) by Paul Mooney on Kaggle.
-
-## Contact
-
-For any questions or suggestions, please open an issue or contact the project maintainers.
+Pretrained models from torchvision.
