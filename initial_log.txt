@@ -1,0 +1,108 @@
+data_dir : C:\Users\TimePC\.cache\kagglehub\datasets\paultimothymooney\chest-xray-pneumonia\versions\2\chest_xray
+image (H,W,C) : 256 x 256 x 1
+datadataset_name_dir : paultimothymooney
+transform_mode : scale
+model_name : cnn
+num_classes : 2
+batch_size : 32
+epochs : 20
+num_workers : 0
+data_dir : C:\Users\TimePC\.cache\kagglehub\datasets\paultimothymooney\chest-xray-pneumonia\versions\2\chest_xray
+image (H,W,C) : 256 x 256 x 1
+datadataset_name_dir : paultimothymooney
+transform_mode : scale
+model_name : cnn
+num_classes : 2
+batch_size : 32
+epochs : 50
+num_workers : 0
+data_dir : C:\Users\TimePC\.cache\kagglehub\datasets\paultimothymooney\chest-xray-pneumonia\versions\2\chest_xray
+image (H,W,C) : 256 x 256 x 1
+datadataset_name_dir : paultimothymooney
+transform_mode : scale
+model_name : cnn
+num_classes : 2
+batch_size : 32
+epochs : 50
+num_workers : 0
+data_dir : C:\Users\TimePC\.cache\kagglehub\datasets\paultimothymooney\chest-xray-pneumonia\versions\2\chest_xray
+image (H,W,C) : 256 x 256 x 1
+datadataset_name_dir : paultimothymooney
+transform_mode : scale
+model_name : cnn
+num_classes : 2
+batch_size : 32
+epochs : 50
+num_workers : 0
+data_dir : C:\Users\TimePC\.cache\kagglehub\datasets\paultimothymooney\chest-xray-pneumonia\versions\2\chest_xray
+image (H,W,C) : 256 x 256 x 1
+datadataset_name_dir : paultimothymooney
+transform_mode : scale
+model_name : mobilenetv2
+num_classes : 2
+batch_size : 32
+epochs : 20
+num_workers : 0
+data_dir : C:\Users\TimePC\.cache\kagglehub\datasets\paultimothymooney\chest-xray-pneumonia\versions\2\chest_xray
+image (H,W,C) : 256 x 256 x 1
+datadataset_name_dir : paultimothymooney
+transform_mode : scale
+model_name : cnn
+num_classes : 2
+batch_size : 32
+epochs : 20
+num_workers : 0
+data_dir : C:\Users\TimePC\.cache\kagglehub\datasets\paultimothymooney\chest-xray-pneumonia\versions\2\chest_xray
+image (H,W,C) : 256 x 256 x 1
+datadataset_name_dir : paultimothymooney
+transform_mode : scale
+model_name : cnn
+num_classes : 2
+batch_size : 32
+epochs : 20
+num_workers : 0
+data_dir : C:\Users\TimePC\.cache\kagglehub\datasets\paultimothymooney\chest-xray-pneumonia\versions\2\chest_xray
+image (H,W,C) : 256 x 256 x 1
+datadataset_name_dir : paultimothymooney
+transform_mode : scale
+model_name : cnn
+num_classes : 2
+batch_size : 32
+epochs : 20
+num_workers : 0
+data_dir : C:\Users\TimePC\.cache\kagglehub\datasets\paultimothymooney\chest-xray-pneumonia\versions\2\chest_xray
+image (H,W,C) : 256 x 256 x 1
+datadataset_name_dir : paultimothymooney
+transform_mode : scale
+model_name : cnn
+num_classes : 2
+batch_size : 32
+epochs : 20
+num_workers : 0
+data_dir : C:\Users\TimePC\.cache\kagglehub\datasets\paultimothymooney\chest-xray-pneumonia\versions\2\chest_xray
+image (H,W,C) : 256 x 256 x 1
+datadataset_name_dir : paultimothymooney
+transform_mode : scale
+model_name : cnn
+num_classes : 2
+batch_size : 32
+epochs : 50
+num_workers : 0
+data_dir : C:\Users\TimePC\.cache\kagglehub\datasets\paultimothymooney\chest-xray-pneumonia\versions\2\chest_xray
+image (H,W,C) : 256 x 256 x 1
+datadataset_name_dir : paultimothymooney
+transform_mode : scale
+model_name : cnn
+num_classes : 2
+batch_size : 32
+epochs : 50
+num_workers : 0
+data_dir : C:\Users\TimePC\.cache\kagglehub\datasets\paultimothymooney\chest-xray-pneumonia\versions\2\chest_xray
+image (H,W,C) : 256 x 256 x 1
+datadataset_name_dir : paultimothymooney
+transform_mode : scale
+model_name : cnn
+num_classes : 2
+batch_size : 32
+epochs : 50
+num_workers : 0
